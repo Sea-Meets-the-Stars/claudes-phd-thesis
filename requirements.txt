@@ -1,0 +1,18 @@
+# Runtime dependencies for claudes_phd_thesis.
+#
+# Keep this list in sync with install_requires in setup.py.
+#
+# Core scientific stack only, for now.  The thesis topic is not settled yet
+# (see the "Thesis topic" prompt in claude_prompts/start_up.md); domain
+# dependencies get added once it is.
+
+# Core scientific stack
+numpy
+scipy
+pandas
+matplotlib
+seaborn
+scikit-learn
+tqdm
+IPython
+pytest

@@ -13,6 +13,7 @@ is where the science gets done.
 2. Read this file.  Execute the 1st task under "Claude/Skills"
 3. Read this file.  Execute the 1st task under "Claude/Settings"
 4. Read this file.  Execute the 1st task under "Basic start up"
+5. Read this file.  Execute the 1st task under "Thesis topic"
 
 ## Claude
 
