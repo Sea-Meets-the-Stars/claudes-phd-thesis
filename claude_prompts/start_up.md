@@ -286,3 +286,79 @@ session at it.  Add the line back when you want it run.
 
 **Git.** No git commands that change repository state were run.  `.claude/settings.json`
 is new and untracked; stage and commit at your discretion.
+
+### 2026-09-12 (Basic Python repository scaffolding)
+
+Executed prompt #4 — the 1st task under "Basic start up".  Surveyed the six
+sibling repositories with a `claude_prompts/` directory, then created:
+`setup.py`, `requirements.txt`, `pytest.ini`, `.gitignore`, `LICENSE`, a
+rewritten `README.md`, and the package `claudes_phd_thesis/` with
+`__init__.py` and `tests/__init__.py`.
+
+**What the house layout actually is.** The reliable core across IOPtics,
+OETHER, `cugn-climatology`, PAB, `retrieve-or-bust`, and `victor-class`:
+`<package>/` (snake_case), `claude_prompts/`, `CLAUDE.md`, `README.md`,
+`LICENSE`, `requirements.txt`, `setup.py`, `.gitignore` — and **no
+`pyproject.toml` in any of them**.  `pytest.ini` appears in
+`cugn-climatology`, PAB, and `victor-class`; it is four lines
+(`testpaths = <pkg>/tests`, `python_files = test_*.py`, `addopts = -ra`) and
+was copied as such.  Everything past that core is per-project
+(`docs/`, `reports/`, `papers/`, `data/`, `notebooks/`, `context/`).
+
+`setup.py` is not generic boilerplate — it is a specific house template: build a
+`setup_keywords` dict field by field, read `README.md` into `long_description`
+if it exists, `provides`, `python_requires='>=3.12'`, `zip_safe=False`,
+`find_packages()`, and a trailing `if os.path.isdir('bin')` block that sweeps
+`bin/*` into `scripts` (skipping `.rst`).  Copied verbatim, with only the name,
+description, and dependency list changed.  `requirements.txt` mirrors
+`install_requires` and says so in a header comment, the way
+`cugn-climatology` does.
+
+**Decisions.**
+
+- Package name `claudes_phd_thesis` — your call when I asked.  It follows the
+  mechanical convention (`cugn-climatology` → `cugn_climatology`,
+  `victor-class` → `victor_class`), though `retrieve-or-bust` → `robust` shows
+  the topic sometimes wins instead.  Renaming later is cheap while the package
+  is empty.
+- `LICENSE` copied from OETHER, the one sibling whose BSD-3 copyright holder is
+  you personally rather than a GitHub org — also your call.  The others read
+  `ocean-colour` (IOPtics, `victor-class`, PAB, `retrieve-or-bust`) or
+  `Sea-Meets-the-Stars` (`cugn-climatology`), i.e. the holder tracks the org
+  that hosts the repository.  `setup_keywords['url']` is therefore an empty
+  string with a `TODO`, since no GitHub remote exists for this repository yet.
+- Dependencies are the core scientific stack only — numpy, scipy, pandas,
+  matplotlib, seaborn, scikit-learn, tqdm, IPython, pytest — which is the
+  intersection of what every sibling installs.  The domain half of each
+  sibling's list (`gsw`/`xhistogram`/`dask` for gliders, `emcee`/`corner`/`bing`
+  for retrievals) has no analogue here until the topic is settled.  Both files
+  carry a comment saying so and pointing at the "Thesis topic" prompt.
+- Acted on the `.gitignore` flag from the 2026-09-12 skills entry: copied
+  IOPtics' 222-line `.gitignore` and added `.claude/settings.local.json` under
+  its own comment.  No sibling ignores that file; they rely on never staging it.
+
+**The settings.json suggestion** (second half of the task; prompt #3 already
+copied IOPtics').  Confirmed IOPtics was the right source, and the comparison is
+more decisive than expected: **all six sibling `settings.json` files have
+byte-identical `deny` and `ask` lists** (the same seven denies, the same single
+`Bash(rm:*)` ask).  The only thing that varies is how much the `allow` list has
+accreted — `cugn-climatology` 33, OETHER and PAB 36, IOPtics and `victor-class`
+45, `retrieve-or-bust` 50.  So the choice of source barely matters for policy;
+it only decides how much cruft you inherit.  Two checks on the pruned file
+written in prompt #3: every one of `cugn-climatology`'s 33 entries is already in
+it (it is a strict superset of the leanest sibling), and no sibling has a single
+LaTeX, `make`, or `.pdf` permission — none of them build a document, so there is
+no house precedent to copy when the Overleaf half of this project starts
+building.  `cugn` is the one repository with no `.claude/` at all.
+
+**Verification.**  Ran in `ocean14`: `setup.py` parses, `import
+claudes_phd_thesis` works and reports version `0.0.dev0`, and all nine
+requirements are already installed.  That environment is on Python 3.14.6, so
+the inherited `python_requires='>=3.12'` is satisfied.  (The import left a
+`__pycache__/` in the package; it is covered by `.gitignore`.)
+
+**Git.** No git commands that change repository state were run — `git status`,
+`git log`, `git ls-files`, `git check-ignore`.  Note that you committed in the
+middle of this prompt (`f68792e wip`, `84f1ff0 mo`): every file from prompts #1
+through #4 is now tracked and the working tree is clean, so nothing is left
+outstanding to stage.
