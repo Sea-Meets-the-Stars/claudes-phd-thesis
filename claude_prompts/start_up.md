@@ -13,7 +13,9 @@ is where the science gets done.
 2. Read this file.  Execute the 1st task under "Claude/Skills"
 3. Read this file.  Execute the 1st task under "Claude/Settings"
 4. Read this file.  Execute the 1st task under "Basic start up"
+
 5. Read this file.  Execute the 1st task under "Thesis topic"
+6. Read this file.  Execute the 2nd task under "Thesis topic"
 
 ## Claude
 
@@ -72,7 +74,52 @@ is where the science gets done.
    and into `CLAUDE.md`, and rewrite `## Goals` at the top of this file to
    match.  Do no coding yet.  Use Fable if you can.  Log your work
 
+2. Read my Answer to Q1 below.  Then ask me one or more additional questions. 
+   Use Fable if you can.  Log your work
+
+
 ## Q&A
+
+**Q1.** When you write "a PhD thesis written by Claude", is Claude the
+*candidate* or the *writer*?  Concretely: does Claude choose the research
+problem (with you as advisor holding a veto), carry out original work whose
+results nobody knows yet, and defend it to a standard you would sign as
+committee chair — or is this a thesis-shaped account of science your group has
+already done (BING/IOPtics/PAB/rob, or nenya/Info_content), or primarily a
+document *about* AI doing science?  Everything downstream — topic, field,
+scope, chapter count, what counts as a passing result — depends on which of
+these you mean, and nothing on disk records it: the GitHub repository has
+existed since at least June with an empty description, and a grep for
+thesis/dissertation across all your other prompt docs and logs finds nothing.
+
+*Recommended:* Claude as candidate, held to the real UCSC dissertation
+standard — an original contribution, three or so result chapters each of
+publishable quality, with negative results admissible as chapters if the
+question was worth asking.  Two things on disk argue for it.  First, this
+repository is built as a science package (Python package, tests, `ocean14`,
+"calculations become scripts") and the task doc says this is where the science
+gets done — which rules out a pure essay about AI and science, and a synthesis
+of already-published work would need none of that scaffolding.  Second,
+`retrieve-or-bust` already *is* the Claude-as-engine experiment, and its
+application reserves problem-ownership to the humans: "the science (problem,
+physics, data, and judgment of what counts as a real retrieval) stays firmly
+ours."  A thesis is the one scientific artefact whose defining property is the
+opposite — the candidate must own the problem.  So the thesis is the natural
+complement to rob rather than a duplicate of it, and the interesting test is
+whether Claude has the judgment to *pick* a problem, not just solve one it is
+handed.  The meta-question — what it means for an AI to do this — belongs where
+it belongs in any thesis: the introduction and the concluding chapter, not as
+the topic.
+
+What that commits you to: acting as advisor and committee, which means reading
+and rejecting chapters and deciding when a proposed problem is too easy, too
+derivative of your group's work, or unjudgeable by you; keeping the field inside
+your competence (ocean colour or astronomy) so you *can* judge it; giving Claude
+access to data; and accepting that the timescale is months of sessions, not
+years, so the scope must be chosen accordingly.
+
+**A1.** . Yes, that's correct.  As for picking the problem, Claude will not. Instead, because Claude was the primary creator (with me as advisor) of the PAB, RoB, and IOPtics projects,
+they will form the bulk of its thesis.
 
 ## Report
 
@@ -362,3 +409,68 @@ the inherited `python_requires='>=3.12'` is satisfied.  (The import left a
 middle of this prompt (`f68792e wip`, `84f1ff0 mo`): every file from prompts #1
 through #4 is now tracked and the working tree is clean, so nothing is left
 outstanding to stage.
+
+### 2026-09-12 (Thesis topic, round 1 — Q1 posed)
+
+Executed prompt #5 — the 1st task under "Thesis topic".  Wrote **Q1** into the
+`## Q&A` section and stopped there, per `grill-me`'s "ask the questions one at a
+time".  No code was written; `## Report` and `## Goals` stay untouched until the
+interview settles.
+
+**On "Use Fable if you can".**  I could not: the model cannot be switched from
+inside a running session, and this one is Opus 5.  What I did instead was hand
+the interviewing to a Fable subagent — briefed with the repository state, the
+`grill-me` rules, the Q&A protocol, and the ambiguity to attack — and keep the
+file-writing and logging here.  Q1 and its recommendation are Fable's words,
+lightly trimmed.  If you want a fully-Fable session, `/model fable` before
+running the next round.
+
+**What the exploration turned up** (Fable ranged over `~/Oceanography/python`,
+`~/Projects`, and `~/Projects/Overleaf`; I verified the two claims that went
+into Q1 as fact):
+
+- The `claudes-phd-thesis` GitHub repository is not new.  `~/bin/claude_prompts/org_websites.md`
+  shows it was already there in June and was *omitted* from the
+  Sea-Meets-the-Stars org README three separate times as "no description, looks
+  like a placeholder/personal repo".  The idea has been parked for ~3 months
+  with nothing written.  Verified.
+- Nothing anywhere else in your prompt docs mentions a thesis or dissertation —
+  `grep -rIl -i "dissertation\|phd thesis"` across `~/bin/claude_prompts/` and
+  every sibling `claude_prompts/` returns nothing.  Verified.  So this file
+  really is the only record, which is why Q1 has to be asked before anything
+  else.
+- `retrieve-or-bust` is a live Claude-does-science project whose application
+  reserves problem-ownership to the humans.  That is the axis a thesis would
+  flip, and it is the core of Fable's recommendation.  (Reported by the
+  subagent from the repo's own docs; I confirmed the repo is active — last
+  commits `5ca740d`, `0fd2e0b`, `dfab27c`.)
+- `~/Projects/Overleaf/Info_content` — "The Information Content of Marine
+  Remote-Sensing Datasets", Claude-co-authored, abstract and intro still
+  placeholder text, untouched since 2026-08-02 — is the obvious candidate
+  chapter if the answer to Q1 turns out to be "writer/synthesis".
+- You are Professor of Astronomy as well as Ocean Sciences, and the astronomy
+  side is active (Keck 2027A proposals, FRB work, PypeIt) — but essentially all
+  Claude-enabled tooling and data on this machine is ocean colour.  That
+  asymmetry will decide the field question, not preference.
+
+**Where the interview goes next**, recorded so the next session does not have to
+re-derive it.  Q2 depends entirely on your A1:
+
+- *Candidate* → which field, and how does the thesis stay clear of
+  `retrieve-or-bust`?  (Recommendation would be ocean colour with IOP inversion
+  from Rrs explicitly excluded as rob's territory, and Claude proposing three
+  candidate problems for you to veto rather than you assigning one.)  Q3 would
+  be timescale and committee.
+- *Writer / synthesis* → which body of work: the Bayesian retrieval arc
+  (BING → IOPtics → PAB → rob) or the self-supervised arc (nenya →
+  Info_content)?  And may new analyses fill gaps, or is it strictly
+  re-narration?
+- *About AI and science* → what is the empirical object, and what is the
+  evidence standard?  Without pinning that first it becomes an essay, and this
+  repository's code/analyses/figures framing would be the wrong container.
+- *Something else* → state it in two sentences, and say whether the `ocean14`
+  Python-package premise still applies; if not, prompt #4's scaffolding should
+  be reconsidered before anything else.
+
+**Git.** No git commands that change repository state were run — read-only
+`git log` against `retrieve-or-bust` and `grep` over your prompt docs.
