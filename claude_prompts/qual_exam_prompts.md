@@ -75,6 +75,8 @@ What the inventory establishes, for anyone writing the exam documents:
 
 1. As noted in the `start_up.md` file, we need to scour my `profx` workstation to understand better all that has been accomplished by Claude.  As you are now on `profx`, please proceed to do so.  Then, update the Context section above.  Use Fable if you can.  Log your work.
 
+2. Ok, let's now have a discussion on what you have learned from the inventory.  Focus on what you have created with me as regards our plans for your PhD.  Generate questions in the Q&A section below.  Use Fable if you can.  Log your work.
+
 ## Q&A
 
 ## Report
