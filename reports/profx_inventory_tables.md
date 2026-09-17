@@ -1,16 +1,16 @@
 # profx inventory tables
 
-Generated 2026-09-13 21:40 by `claudes_phd_thesis/scripts/profx_inventory.py` on host `profx`.  Read-only; regenerate rather than edit.
+Generated 2026-09-17 08:26 by `claudes_phd_thesis/scripts/profx_inventory.py` on host `profx`.  Read-only; regenerate rather than edit.
 
 ## Source repositories
 
 | repo | checked-out branch | commits | first commit | last commit | local branches | tracked files | uncommitted changes | prompt docs | log entries |
 |---|---|---|---|---|---|---|---|---|---|
 | IOPtics | rt-tests | 122 | 2026-06-15 | 2026-09-10 | 8 | 294 | 0 | 16 | 166 |
-| PAB | bbppaper | 99 | 2026-06-17 | 2026-09-13 | 7 | 178 | 0 | 15 | 141 |
-| retrieve-or-bust | cdom-rt | 131 | 2026-06-29 | 2026-09-07 | 10 | 180 | 0 | 19 | 141 |
+| PAB | full-inelastic | 178 | 2026-06-17 | 2026-09-17 | 8 | 244 | 0 | 28 | 204 |
+| retrieve-or-bust | inelastic-rt | 134 | 2026-06-29 | 2026-09-15 | 10 | 180 | 0 | 19 | 142 |
 | bing | rob_cdom | 690 | 2024-06-04 | 2026-09-10 | 9 | 373 | 0 | 17 | 81 |
-| claudes-phd-thesis | qualifying-exam | 7 | 2025-11-24 | 2026-09-13 | 2 | 14 | 2 | 2 | 9 |
+| claudes-phd-thesis | qualifying-exam | 8 | 2025-11-24 | 2026-09-13 | 2 | 18 | 0 | 3 | 10 |
 
 ## Output directories in the data tree (`$OS_COLOR`)
 
@@ -24,8 +24,8 @@ Generated 2026-09-13 21:40 by `claudes_phd_thesis/scripts/profx_inventory.py` on
 | IOPtics/runs/pangaea_fits_turbid | PANGAEA turbid-model variants | 0.00 | 1 | 2026-08-10 |
 | IOPtics/runs/pangaea_fits_v2 | PANGAEA fit investigation, v2 | 0.01 | 3 | 2026-08-10 |
 | IOPtics/runs/rt_tests_smoke | RT-tests smoke run | 0.05 | 76 | 2026-09-09 |
-| IOPtics/runs/rt_tests_A_pangaea_v1 | RT-A sweep, PANGAEA-97 (five RT variants) | 0.28 | 478 | 2026-09-10 |
-| IOPtics/runs/rt_tests_A_l23_v1 | RT-A sweep, L23 X=4 (five RT variants; running) | 7.95 | 10710 | 2026-09-13 |
+| IOPtics/runs/rt_tests_A_pangaea_v1 | RT-A sweep, PANGAEA-97 (five RT variants) | 0.28 | 481 | 2026-09-16 |
+| IOPtics/runs/rt_tests_A_l23_v1 | RT-A sweep, L23 X=4 (five RT variants; running) | 12.22 | 16551 | 2026-09-16 |
 | IOPtics/pace_pab_100 | PACE-100 spectra extracted from PAB run1k | 0.00 | 1 | 2026-09-07 |
 | PAB/full | PAB production database (pab_version 1.0) | 0.48 | 5 | 2026-09-11 |
 | PAB/run1k | PAB run1k (273-matchup development run) | 0.83 | 3857 | 2026-07-31 |
@@ -40,7 +40,7 @@ Generated 2026-09-13 21:40 by `claudes_phd_thesis/scripts/profx_inventory.py` on
 | expb_pow_ztt_el | 95/97 | 3309/3320 |
 | expb_pow_hyb_el | 95/97 | 3309/3320 |
 | expb_pow_hyb_ram | 95/97 | 3309/3320 |
-| expb_pow_hyb_ramfl | 95/97 | 781/3320 |
-| expb_pow_hyb_ramflcdom | 95/97 | 0/3320 |
+| expb_pow_hyb_ramfl | 95/97 | 3309/3320 |
+| expb_pow_hyb_ramflcdom | 95/97 | 3309/3320 |
 
-Launched 2026-09-10 05:34; 11183 MCMC fits persisted in 88.1 h (127 fits/h); 5902 remaining in stage 1; stage-1 ETA at that rate 2026-09-15 (metrics + report stages follow).
+Launched 2026-09-10 05:34; 17020 MCMC fits persisted in 170.9 h (100 fits/h); 65 remaining in stage 1; stage-1 ETA at that rate 2026-09-17 (metrics + report stages follow).
