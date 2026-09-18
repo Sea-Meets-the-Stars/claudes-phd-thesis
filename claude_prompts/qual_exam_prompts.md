@@ -202,8 +202,8 @@ cut prompt 14 (synthetic-Adg) first: RT-A already carries its qualitative point.
     question appears in the introduction and the conclusions only.  Use Fable if
     you can.  Log your work.
 
-11. **Build the oral.**  Forty slides, mainly figures, in the format settled in
-    Q19, reusing prompt 9's figures.  Proportions roughly: 6 setup, 5 methods,
+11. **Build the oral.**  Forty slides, mainly figures. Generate a Google Slide
+    show in the AIOcean Drive.  Proportions roughly: 6 setup, 5 methods,
     10 RT-A, 6 benchmarking, 4 EPFT-UP, 6 PAB, 3 future work.  One idea per
     slide, the claim restated on the first and last, and a backup section after
     the end for the questions the committee will actually ask — which on this
