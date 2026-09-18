@@ -1453,3 +1453,108 @@ repository gains `claudes_phd_thesis/scripts/rta_reconcile.py` and
 `reports/rta_reconcile.md`, and `reports/rta_headline.md` is modified.  The
 `rclone purge` of the Drive transport copy is the one irreversible action of
 the session; it followed a verified 0-difference check on every tree.
+
+### 2026-09-18 (Before-the-exam prompt 7 — RT-B was already run; the consistency check made reproducible)
+
+Executed prompt 7 on `profx`, in Fable.  The prompt asked for three things and
+two of them were already done when the session opened.
+
+**RT-B had run.**  The IOPtics prompt doc's log (task 13, 2026-09-17, committed
+this morning as `5890c81`) records stages 3 and 4 complete: 495 chains, one
+PACE spectrum declined by the red-peak screen identically on every rung, 99 of
+100 `ok` on each, 4.8 h on 20 cores, metrics written.  I verified the artefacts
+rather than the log: 495 chain files, `qc_mcmc_all.csv` showing
+`n_attempted 100 / n_scored 99` for all five rungs, chi-squared-nu medians
+0.42–0.59.  Nothing to run.
+
+**The page already carried the PACE headline** because prompt 6 built the page
+type for all three arms once it found RT-B finished (logged there; Q55 in
+`rt_tests.md`).  The fractional-change figure and the delta-BIC histogram the
+prompt describes are on `rt_tests_B_v1/rt_ladder.rst`.
+
+**The consistency check existed only as prose.**  The task-13 log quotes
+correlations and medians but no script produced them, so the one thing left
+to do was make it reproducible.  New
+`IOPtics/ioptics/runs/prototypes/rt_tests/pab_consistency.py` matches the 99
+RT-B `expb_pow_hyb_el` chains to PAB's `run1k` `ExpBPow` chains for the same
+pixels, checks the two fitters were handed the same spectra, and compares the
+posterior medians of the five shared parameters and the derived Chl.  Result:
+spectra identical to the last bit on all 136 bands; parameter correlations
+0.935–0.998; Chl ratio median 1.053 with a 16–84 percent span of 0.94–1.36; the
+only systematic offset is +0.05 dex in the backscatter amplitude, the expected
+signature of swapping Gordon for the hybrid model with a free B_p.  The numbers
+match the 09-17 log to three decimals.  The summary table now appears on the
+PACE page as a "Consistency with PAB's fits" section.
+
+**Verification.**  Two new tests; IOPtics suite without `$OS_COLOR` 515 passed,
+61 skipped; full `sphinx-build -W` exit 0.
+
+**What this means for the report.**  RT-B is a result, not an "expected" item.
+The PACE arm can be reported as: on 99 real PACE pixels the full inelastic
+forward model moves retrieved bb_p by −21 percent, a_ph by +5 percent and
+a_dg by +1 percent (medians), and the data prefer the inelastic physics on
+52 percent of pixels, strongly on 30 percent, strongly against on 23 percent.
+The prompt's fallback clause was not needed.
+
+**Git.**  Read-only.  IOPtics gains one script, one page CSV and edits to the
+page module, its tests and its prompt doc; this repository gains only this
+entry.
+
+### 2026-09-18 (Before-the-exam prompt 8 — corrected PANGAEA page, runs tree consolidated, merge checklist and citation manifest on profx)
+
+Executed prompt 8 on `profx`, in Fable.  Four parts; all done, with two
+judgement calls stated below.
+
+**1. The corrected PANGAEA page.**  `pangaea_fits_v2` (1,593 spectral-truth
+ids, native `insitu` noise, red-peaked spectra declined before fitting) had
+results but no metrics and no page.  New driver
+`IOPtics/ioptics/runs/prototypes/pangaea_fits/build_v1.py` computed the metrics
+and built `docs/source/reports/pangaea_fits_v2/` (cross-algorithm and exemplar
+pages).  Headline: ok-rates 43.2 / 52.6 / 37.6 percent for expb_pow / giop /
+gsm, the investigation's Round-2 numbers exactly.  It sits beside the mixed
+`multi_L23_PANGAEA_v2` page rather than replacing it, which is what the
+investigation recommended (D1) and the prompt's "regenerate ... from
+pangaea_fits_v2" allows.  I cannot commit it; it is untracked for you.
+
+**2. Consolidation.**  The staged Mac copy of `multi_L23_PANGAEA_v2` and the
+`profx` copy are the same 14,739 rows at two code versions (chi-squared agrees
+to 3e-3; four statuses and 2,530 `a_cdom440` values differ, the latter from
+the central-value fix between them).  *Judgement call:* the `profx` copy is
+canonical (later code, the copy the 08-19 fold used), and its page was
+regenerated so page and tree agree.  The Mac copy stays staged, untouched.
+The leaderboard was then re-folded over the whole tree: five sweeps, 788 rows,
+so the test20 and GLORIA rows and landing cards dropped on 08-19 are back and
+`pangaea_fits_v2` is new; the RT sweeps stay out by flag.  Full record in
+`reports/runs_consolidation.md` (script `runs_consolidation.py`).
+*Second judgement call:* the landing rebuild generated profile pages for the
+five RT rungs that read "not in the registry / no scoreable result", so
+IOPtics' profile builder now follows the board's exclusion flag; those pages
+are gone, with a test.
+
+**3. Merge checklist re-run on profx**: `reports/merge_checklist.md` now
+carries this machine's numbers (IOPtics `rt-tests` 101 ahead of `main`; PAB
+`full-inelastic` 152; BING `rob_cdom` 46; RoB `inelastic-rt` 107; EPFT-UP on
+`main`; ocpy `pace_giop`).
+
+**4. Citation manifest**: `reports/citation_manifest.md` (script
+`citation_manifest.py`): 62 citations across seven repositories, each as a
+`main`-relative path with on-`main` status and, where not, the branch and
+last-touching hash.  **47 are not yet on `main`.**  The merge list that falls
+out: RoB `inelastic-rt` (14 paths), BING `rob_cdom` (3), IOPtics `rt-tests`
+(18, plus today's uncommitted pages), PAB `full-inelastic` (6) and
+`hyper_matchups` (1), and this repository's `qualifying-exam` (4).  Everything
+in EPFT-UP and ocpy is on `main`.  One citation is not on this machine at all:
+`IOPtics/claude_prompts/LS2/ls2_prompts.md` was written on the Mac on 09-17
+and left untracked on its `ls2` branch, so it needs a commit and push from
+there before it can be cited.  Sweep outputs outside git are listed with their
+provenance commits.
+
+**Verification.**  IOPtics suite without `$OS_COLOR` 516 passed, 61 skipped;
+full `sphinx-build -W` exit 0.
+
+**Git.**  Read-only.  IOPtics: new `pangaea_fits/build_v1.py` and
+`reports/pangaea_fits_v2/`, regenerated `multi_L23_PANGAEA_v2/`, `index.rst`,
+`leaderboard_full.rst`, the algorithm and dataset profiles, `profiles.py`,
+`test_profiles.py`, `pangaea_fits.md`; `$OS_COLOR/IOPtics/leaderboard.parquet`
+rewritten by the fold.  This repository: two new scripts, two new reports,
+`merge_checklist.md` regenerated, this entry.
