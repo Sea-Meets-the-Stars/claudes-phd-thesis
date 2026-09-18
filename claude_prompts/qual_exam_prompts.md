@@ -1610,3 +1610,62 @@ disagreeing on the split under one physics.
 **Git.**  Read-only.  New: `claudes_phd_thesis/scripts/figures/` (13 files),
 `reports/figures/` (14 figures, 10 PDFs, 14 captions),
 `reports/figure_inventory.md`; modified: this file.
+
+### 2026-09-18 (Before-the-exam prompt 10 — the qualifying-exam report written and compiled: 16 pages)
+
+Executed prompt 10 on `profx`, in Fable.  The report is
+`~/Projects/Overleaf/Claude-PhD-Thesis/qual_report.tex`, a sibling document to
+the dissertation in the Overleaf repository (A19), with a new shared
+`thesis.bib` and the fourteen figures copied into `figures/`.  It compiles
+clean with `pdflatex` + `bibtex` (no citation or reference warnings, no BibTeX
+errors) to **16 pages** including 12 figures, 2 tables and references, under
+the twenty-page limit (A14).  A dated PDF copy is at
+`reports/qual_report_2026-09-18.pdf` in this repository.
+
+**Structure, as instructed.**  Six sections matching the six chapters (Q20),
+then a Timeline to completion (table plus fig 14) and a Risks table (A20),
+then a data-and-code-availability paragraph pointing at the citation
+manifest.  About 7,000 words.  It opens with the retrieval problem for an
+astronomer who has never seen an ocean spectrum (two pages of setup before
+any result: what Rrs is, what the IOPs are, the Gordon-to-BING lineage), then
+states the ratified separation claim in component-separation language with
+the SED analogy named once and dropped (Q13/A13).  Every section ends with a
+**Status** paragraph saying what exists and what is expected, and nothing
+that had not finished today is reported as a result.  The AI-as-candidate
+question appears in the introduction and the conclusions only.  The A2
+exclusions hold: the bbp700 validation is named as a collaborator's and
+excluded, the RoB inversion is stated not to exist and not anticipated, and
+information content is explicitly not the frame.
+
+**Evidence used.**  The RT-ladder pages (figs 4–8), the full-L23 MCMC and
+three-algorithm sweeps and the corrected PANGAEA page (fig 9), the GLORIA
+sweep (fig 10), the RoB validation tables (figs 2–3), EPFT-UP's report and
+audit (fig 11), the PAB Chl-a and CDOM reports (fig 12), and the inventory.
+Every number was taken from the committed pages or the reconciled tables of
+prompts 6–9; the L23 ladder numbers are the ones `reports/rta_reconcile.md`
+verified.  Two of the fourteen figures (6, ladder versus wavelength; 13, raw
+versus adjusted Argo) are described in text rather than shown, to hold the
+page count; the oral can use them.
+
+**References.**  Nineteen literature entries and six software/report entries.
+Every literature entry was checked against Crossref today (DOI, journal,
+volume, pages); the Erickson et al. (2023) title and DOI came from that
+check rather than memory, and the L23 dataset is a Dryad record cited as the
+publisher gives it.  Style `aasjournal`, which the dissertation template
+uses (author–year, no article titles).
+
+**Risks table.**  The seven risks the prompt named plus two the inventory
+raised (the 1,690 never-attempted PAB profiles; citations on branches).  One
+of the seven is marked retired: RT-B ran on 09-17.
+
+**Compile notes for the next session.**  A `@misc` in a `.bib` comment line
+is parsed as an entry start by BibTeX (fixed by rewording); the risks table
+needed `[H]` placement or it floated past the references; long file paths
+want `\path{}` not `\texttt{}`.  Build artefacts (`.aux`, `.log`, `.out`,
+`.bbl`, the PDF) are untracked in the Overleaf clone; a `.gitignore` there
+is your call.
+
+**Git.**  Read-only.  Overleaf repository: new `qual_report.tex`,
+`thesis.bib`, `figures/` (24 files); this repository: new
+`reports/qual_report_2026-09-18.pdf`, this entry.  The Overleaf clone shows
+some of these already staged, which I did not do.
