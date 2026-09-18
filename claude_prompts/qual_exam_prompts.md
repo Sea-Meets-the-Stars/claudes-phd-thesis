@@ -213,6 +213,9 @@ cut prompt 14 (synthetic-Adg) first: RT-A already carries its qualitative point.
     notes for the ten slides that carry the argument.  Use Fable if you can.
     Log your work.
 
+12. **Video time.** Create a 30min video that presents the oral.  Put it on the 
+    AIOcean Drive. Use Fable if you can.  Log your work.
+
 ### After the exam, for the dissertation
 
 12. **PAB 2.0 to completion.**  Execute prompts 5-9 of `PAB/claude_prompts/v2/`:
