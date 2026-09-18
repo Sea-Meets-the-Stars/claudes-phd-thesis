@@ -1,5 +1,7 @@
 # RT-A headline numbers (peek)
 
+> **Superseded 2026-09-18.** The IOPtics RT-ladder pages (`docs/source/reports/rt_tests_{A_l23_v1,A_pangaea_v1,B_v1}/rt_ladder.rst`) are now the numbers of record; `reports/rta_reconcile.md` shows every cell below agrees with them. Kept for the provenance of the Q1 table in `claude_prompts/qual_exam_prompts.md`.
+
 Generated 2026-09-17 08:28 by `claudes_phd_thesis/scripts/rta_headline.py` from the IOPtics stage-2 metrics under `$OS_COLOR/IOPtics/runs/`.  The IOPtics report stage has not run; treat these as provisional.
 
 ## L23 (X=4, PACE noise, 3,320 spectra) — `rt_tests_A_l23_v1`

@@ -1377,3 +1377,79 @@ ahead, and prompt 6 is the one the other four depend on.
 
 **Git.**  Read-only: `rev-parse`, `status`.  Tests run read-only in `tmp_path`.
 Modified: this file.
+
+### 2026-09-18 (Before-the-exam prompt 6 — evidence landed, RT-ladder pages built for all three arms)
+
+Executed prompt 6 on `profx`, in Fable (Claude Fable 5.1, directly).  All four
+parts done; one deliberate departure from the prompt text, stated below.
+
+**1. The transfer.**  Pulled `AIOcean:Claude_PhD_transfer/2026-09-17/` per
+`reports/mac_to_profx_manifest.md` §1.  Three trees had no counterpart here
+and went straight to their manifest destinations: `expb_giop_L23_test20` (66
+files), `gloria_turbid_v3` (47), `whn_explore` (4).  Two collided with files
+`profx` already held and were **staged** under
+`$OS_COLOR/IOPtics/transfer_2026-09-17/` instead of copied over:
+`multi_L23_PANGAEA_v2` (the Mac copy is a different run with the same sweep
+id: 6 files differ in content, 41 exist only on the Mac side, and the Mac's is
+what the committed page was built from) and `leaderboard.parquet` (the Mac's
+predates the full-L23 fold that `profx`'s contains; staged as
+`leaderboard_mac.parquet`).  `rclone check --one-way` on all five: 0
+differences.  The Drive copy was then purged, as the manifest and the prompt
+both instruct.  Consolidating the two staged items is prompt 8's job and is
+raised as Q54 in `IOPtics/claude_prompts/rt_tests.md`.
+
+**2. Task 14 of `rt_tests.md`.**  Stage 5 of `build_v1.py` was a stub; it is
+now a report stage that writes an **RT-ladder page** per arm
+(`ioptics/report/rt_ladder.py`, plus a truth-free fractional-change diagnostic,
+two plot primitives and three figure builders).  Pages exist for
+`rt_tests_A_l23_v1`, `rt_tests_A_pangaea_v1` **and `rt_tests_B_v1`** under
+`IOPtics/docs/source/reports/`.  Every page carries the limitations the prompt
+lists (θ_v = 0 everywhere, `a_cdom = 0.8 × a_dg`, packaged-sky Ed, learned
+corrections off, the L23 X=4 single-Gaussian and no-CDOM-fluorescence truth)
+plus the ones the Q&A recorded (the emulator's B_p domain, unvalidated CDOM
+fluorescence, PANGAEA's flat error model and fixed B_p, PACE's noisy red
+bands, the leaderboard exclusion).  The landing page and leaderboard are
+untouched (`index.rst` is byte-identical).
+
+*The departure:* the prompt said to leave the PACE headline figure out because
+RT-B had not run.  It had: the uncommitted `rt_tests.md` log on `profx` shows
+task 13 (RT-B, 495 chains, PAB consistency check passed) closed on 2026-09-17.
+So the page type was built for all three arms and the PACE page carries the
+headline the prompt had deferred to prompt 7.  Prompt 7 is therefore reduced
+to reviewing that page; noted as Q55 in `rt_tests.md`.
+
+**3. Reconciliation, as instructed.**  `claudes_phd_thesis/scripts/rta_reconcile.py`
+→ `reports/rta_reconcile.md`: every cell on the three pages against the
+stage-2 metrics tables that `reports/rta_headline.md` was read from, and the
+L23 rows against the hand-typed Q1 table in this file.  150 + 45 cells,
+**0 discrepancies**.  `rta_headline.md` now carries a superseded note.
+
+**4. Verification.**  IOPtics full suite **without `$OS_COLOR`: 513 passed,
+61 skipped** (503/61 before; the 10 new tests are
+`ioptics/tests/test_report_rt_ladder.py`, and the stub test in
+`test_rt_tests.py` became a behaviour test).  Full docs tree
+`sphinx-build -W`: **exit 0**, three new pages rendered.
+
+**5. Overleaf.**  `~/Projects/Overleaf/Claude-PhD-Thesis` already exists on
+`profx` at `d611a28`, the same tip the manifest records for the Mac.  Nothing
+to clone; the stock `ucthesis` template is what is there.
+
+**What the pages say, in one paragraph each, for prompts 9–11.**  L23: total
+absorption is insensitive to the physics (a(440) MAE 0.050–0.059 across all
+five rungs); the elastic rungs overestimate bb_p by 41–68 % with zero
+interval coverage and the full inelastic rung brings that to −5 %/+6 % with
+coverage 0.59–0.66; a_ph and a_dg errors persist under every physics
+(a_ph MAE 0.85–2.52, a_dg 0.25–0.38); the configured ΔBIC contest favours the
+inelastic stack on 70.6 % of scenes (median +2.1, MCMC).  PANGAEA: the
+fluorescence rungs trade a_dg accuracy (MAE 2.1 → 0.36) against a_ph (0.76 →
+2.2) and the data prefer the elastic fit (median ΔBIC −1.1).  PACE, no truth:
+from the elastic hybrid to the full stack the retrieved a_ph moves +5 %, a_dg
++1 %, bb_p −21 % (medians, n = 99), and ΔBIC is bimodal — 52 % of pixels
+favour the inelastic physics, 30 % strongly, 23 % strongly against.
+
+**Git.**  Read-only in every repository (`status`, `diff`, `ls-remote`).
+IOPtics has new and modified files listed in its own log entry; this
+repository gains `claudes_phd_thesis/scripts/rta_reconcile.py` and
+`reports/rta_reconcile.md`, and `reports/rta_headline.md` is modified.  The
+`rclone purge` of the Drive transport copy is the one irreversible action of
+the session; it followed a verified 0-difference check on every tree.
