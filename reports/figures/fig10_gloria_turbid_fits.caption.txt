@@ -1,0 +1,3 @@
+On turbid coastal water every backscatter parameterization returns the same failing fit (the four model curves lie on top of each other), so a richer parameterization cannot be the fix and the forward model is the remaining suspect.
+
+[reused from IOPtics/reports/figures/talk_exemplar_fits.png; produced by IOPtics/reports/scripts/talk_exemplar_fits.py]

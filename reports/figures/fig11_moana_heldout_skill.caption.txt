@@ -1,0 +1,3 @@
+The published MOANA coefficients transfer to independent hyperspectral in-situ spectra for picoeukaryotes but not for Prochlorococcus or Synechococcus, a parameterization-transfer failure one level up from the IOPs.
+
+[reused from EPFT-UP/reports/figures/moana_heldout_skill.png; produced by EPFT-UP/reports/scripts/ (moana_report_figs.py)]

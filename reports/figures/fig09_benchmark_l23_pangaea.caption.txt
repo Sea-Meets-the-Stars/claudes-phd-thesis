@@ -1,0 +1,1 @@
+Three different parameterizations retrieve total absorption to within about 5–18 % but disagree by factors on the phytoplankton/CDOM split, and on real in-situ spectra half the apparent failures were an artefact of the error model, not of the algorithms.

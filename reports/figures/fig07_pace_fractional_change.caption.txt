@@ -1,0 +1,1 @@
+On real satellite spectra the choice of forward model moves the retrieved particulate backscatter down by about a fifth and leaves the absorption constituents nearly unchanged on average but with a wide spread, so the physics matters for what is claimed pixel by pixel.

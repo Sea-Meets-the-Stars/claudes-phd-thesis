@@ -1,0 +1,1 @@
+The data prefer the fuller physics on synthetic spectra that contain it, are indifferent on sparse in-situ spectra, and split on real satellite pixels, so fit quality alone would never have found the forward-model error that the truth-referenced test shows.

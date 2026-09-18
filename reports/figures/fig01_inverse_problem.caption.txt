@@ -1,0 +1,1 @@
+Ocean colour is an inverse problem: the one measurable spectrum on the left must be decomposed into the absorbing and scattering constituents on the right, and in the turbid case the water itself no longer dominates.

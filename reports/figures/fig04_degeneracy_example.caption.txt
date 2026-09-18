@@ -1,0 +1,1 @@
+Two forward models fit the same reflectance equally well and return different phytoplankton and CDOM absorption: the fit quality cannot tell them apart, which is what makes the decomposition a parameterization problem rather than a physics one.

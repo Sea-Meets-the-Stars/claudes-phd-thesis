@@ -1,0 +1,3 @@
+Against 9,814 BGC-Argo profiles the PACE chlorophyll retrieval is high in clear water and low in rich water, changing sign near 0.1–0.2 mg per cubic metre, so no single bias number describes the mission-scale error.
+
+[reused from PAB/pab/matchup/chl/chl_reldiff_vs_magnitude.png; produced by PAB/pab/matchup/chl/ scripts (pab_chl_matchups_report.md §3)]

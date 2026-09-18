@@ -1558,3 +1558,55 @@ full `sphinx-build -W` exit 0.
 `test_profiles.py`, `pangaea_fits.md`; `$OS_COLOR/IOPtics/leaderboard.parquet`
 rewritten by the fold.  This repository: two new scripts, two new reports,
 `merge_checklist.md` regenerated, this entry.
+
+### 2026-09-18 (Before-the-exam prompt 9 — the figure set: 14 figures, 10 built, 4 reused)
+
+Executed prompt 9 on `profx`, in Fable.  Loaded the data-visualization skill
+before drawing anything, per its trigger.
+
+**Inventory first.**  Counted what exists: IOPtics 22 investigation figures
+plus 3 site graphics plus the RT-ladder page assets; retrieve-or-bust 18
+figures across `reports/`, `design/validation/` and `context/RT/`; EPFT-UP 6;
+PAB 22 report figures plus 4 docs figures; BING none on this machine.  Then
+decided a set of fourteen against the six sections and the oral's proportions:
+ten built here from data on disk, four reused where the published figure
+already says the right thing.  Table, captions and conventions in
+`reports/figure_inventory.md`.
+
+**Built** (`claudes_phd_thesis/scripts/figures/`, one script per figure,
+shared `_style.py`, `make_all.py` runs them all, `reuse_existing.py` copies
+the four reused ones with source and producer recorded): the inverse problem
+from two L23 bodies; the forward-model accuracy ladder and the inelastic terms
+from RoB's validation CSVs; a degeneracy example (one L23 body, two physics,
+same χ²ν, different decomposition — body picked by rule); the RT ladder on L23
+as bars and bias markers; the ladder versus wavelength on L23 and PANGAEA; the
+PACE fractional change; ΔBIC on all three arms; the three-algorithm L23
+benchmark beside the PANGAEA two-error-model bars; and the timeline to
+completion.  Reused: the GLORIA four-models-one-fit exemplars, MOANA held-out
+skill, and PAB's Chl-a sign change and raw-versus-adjusted figures.  Outputs
+in `reports/figures/` as PNG + PDF (reused: PNG) with a caption file each.
+
+**Conventions applied.**  Ordered rungs take a single-hue ordinal ramp, not
+five hues; algorithms take the reference palette's first three categorical
+slots in fixed order; truth is ink; axis labels are spelled out for a reader
+who has never seen an ocean spectrum; one axis per panel; ratios on log axes
+labelled as factors with folded tails counted; bars carry their values; every
+multi-series panel has a legend.  The palette validator needs `node`, absent
+here, so the colours are the skill's documented pre-validated values used
+unchanged — recorded in the inventory rather than claimed as validated.
+
+**Looked at every figure**, twice: the first pass found legend collisions
+(figs 2, 5, 6), a title collision (fig 4), a headroom problem (fig 8), a
+percent axis that a_ph ratios in the hundreds made unreadable (fig 7, redrawn
+on a log-ratio axis), and rotated milestone labels squashing the timeline
+(fig 14).  All fixed and rebuilt.
+
+**What the figures say that the report will lean on.**  Fig 5 is the thesis
+in one panel row: bb_p error 55 % → about 0 down the ladder, a_ph and a_dg
+errors unchanged.  Fig 8 shows the fit itself would never have found the
+physics error.  Fig 9 shows three parameterizations agreeing on totals and
+disagreeing on the split under one physics.
+
+**Git.**  Read-only.  New: `claudes_phd_thesis/scripts/figures/` (13 files),
+`reports/figures/` (14 figures, 10 PDFs, 14 captions),
+`reports/figure_inventory.md`; modified: this file.

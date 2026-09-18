@@ -1,0 +1,1 @@
+The forward-model error term can be driven from 7 % (the Gordon relation every retrieval has used) to 0.3 % with a differentiable hybrid model, so whatever retrieval error remains after that is not the physics.

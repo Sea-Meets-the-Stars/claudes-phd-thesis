@@ -1,0 +1,1 @@
+Light that water itself re-emits (Raman scattering, chlorophyll fluorescence) is 15–20 % of the red-end signal; an elastic-only forward model cannot fit it, and a retrieval run on one will put that light somewhere in the constituents.

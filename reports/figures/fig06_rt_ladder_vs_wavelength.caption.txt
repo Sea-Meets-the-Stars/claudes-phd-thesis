@@ -1,0 +1,1 @@
+On synthetic data the physics fixes particulate backscattering at every wavelength while the absorption split stays wrong everywhere; on real in-situ spectra the fluorescence terms move error from CDOM into phytoplankton rather than removing it.
