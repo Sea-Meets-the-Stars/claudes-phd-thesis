@@ -623,6 +623,28 @@ context of Claude's collaboration with the advisor.
 - **Prompt doc**: GitHub's `qualifying-exam` branch (b63b908, 2026-09-17)
   adds Report prompt 2 to `qual_exam_prompts.md`; this clone was one commit
   behind when prompt 2 was executed.
+- **MOANA's spin-off was missed by this inventory** (added 2026-09-17, from
+  the Mac).  It went to `EPFT-UP`, not to a repository named MOANA: migration
+  out of IOPtics `moana` @ `3aa3b6e` on 2026-09-13 (23 files, 37 tests), a
+  re-derivation audit reproducing all 35 report-printed numbers and all six
+  figures (`reports/moana_rederivation.md`), README, a 16-page Sphinx/RTD site,
+  `CITATION.cff`, `.zenodo.json`, CI, v0.1.0 — all by 2026-09-15.  Branch
+  `diatom` (8 ahead of `main`) holds an exploration of Alison Chase's diatom
+  carbon-biomass algorithm, read as out of thesis scope.
+- **`ocpy` already contains a working LS2** (`ocpy/ls2/`, ported by JXP and
+  Claude 2023-06-22 from the Kehrli/Reynolds/Stramski MATLAB; tests pass against
+  the authors' reference vector).  It implements Loisel et al. 2018, not the
+  2000 paper, and departs from it in four places — `b_p` is an input rather than
+  derived from Chl via OC4v4, the Kd network is a MODIS-band variant, the Raman
+  correction runs once rather than to convergence, and the shipped kappa table
+  is a cubic in bb/a over 302-702 nm.  See
+  `IOPtics/claude_prompts/LS2/ls2_prompts.md`.
+- **Branch divergence measured** (Mac clone, 2026-09-17,
+  `claudes_phd_thesis/scripts/merge_checklist.py` → `reports/merge_checklist.md`).
+  Correction to §9 and to Q&A Q6: RoB `cdom-rt` was **not** deleted and `main`
+  is 105-106 commits behind `inelastic-rt`, so PR #21 merged into a branch, not
+  into `main`; BING `develop` and `turbid_bbp` *are* already on `main`, leaving
+  `rob_cdom` (46) and `rob_rt` (41) outstanding.
 
 ## 10. Corrections to the thesis Report (start_up.md) implied by this inventory
 

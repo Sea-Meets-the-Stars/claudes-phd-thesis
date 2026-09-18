@@ -8,7 +8,7 @@ __pycache__/
 
 # Context files
 docs/PDFs/
-papers/*.pdf
+context/papers/*.pdf
 
 # Claude Code machine-local settings (the committed policy is .claude/settings.json)
 .claude/settings.local.json
