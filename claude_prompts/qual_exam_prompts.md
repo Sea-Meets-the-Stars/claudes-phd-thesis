@@ -1669,3 +1669,60 @@ is your call.
 `thesis.bib`, `figures/` (24 files); this repository: new
 `reports/qual_report_2026-09-18.pdf`, this entry.  The Overleaf clone shows
 some of these already staged, which I did not do.
+
+### 2026-09-18 (Before-the-exam prompt 11 — the oral: 40 slides + 7 backup, as Google Slides in the AIOcean Drive)
+
+Executed prompt 11 on `profx`, in Fable.  The prompt now asks for a Google
+Slides deck in the AIOcean Drive rather than Beamer; done that way.
+
+**Where it is.**  Google Slides `qual_oral` in the AIOcean team drive, folder
+`Claude_PhD/Qualifying_Exam/`:
+https://docs.google.com/presentation/d/1SBC5Nuft95l3k5hTHKwVc6av71VLM_pGYzM64t9_Qno/edit
+(mimeType `application/vnd.google-apps.presentation`, verified through the
+Drive API).  The written report's PDF sits beside it in the same folder.
+Source of record in this repository: `claudes_phd_thesis/scripts/oral/build_deck.py`
+(python-pptx) → `reports/oral/qual_oral.pptx` (2.9 MB) and
+`reports/oral/speaker_notes.md`; the PDF render used for QA is
+`reports/oral/qual_oral.pdf`.
+
+**How it was made.**  No `node` on this machine, so the pptx skill's
+`pptxgenjs` route was closed; `python-pptx` was installed into `ocean14` and
+the deck built from a script, one function per slide type (figure slide,
+column/stat slide, table slide, dark statement slide).  The `.pptx` was
+validated with the skill's `validate.py` (all checks passed), rendered to PDF
+with LibreOffice, inspected slide by slide from thumbnail grids and
+full-size renders (two titles shortened to stop awkward wraps), then imported
+into Drive with `rclone copy --drive-import-formats pptx`, which converts on
+upload.  Speaker notes are embedded in the `.pptx` and survive the import.
+
+**Structure** (40 main + 7 backup; footer numbers `n / 40`, then `backup n`):
+setup 6 (title with the claim; what the satellite measures; what must be
+retrieved; how the field solves it; the claim in component-separation
+language with the SED analogy once; four projects / six chapters / who did
+what), methods 5, RT-A and RT-B 10 (design table, why five rungs, the
+degeneracy example, the centrepiece ladder, "read it as two findings", the
+ladder across the spectrum, the PANGAEA arm, PACE fractional change, ΔBIC on
+three arms, what the pages say about themselves, the PAB consistency table),
+benchmarking 6, EPFT-UP 4, PAB 6, future 3 (timeline, risks, conclusions
+restating the claim).  Backup, ordered by the four questions the prompt
+named: how do you know the forward model is right; why is a_ph wrong by a
+factor of two and should anyone care; what would falsify the claim; what did
+the candidate do versus the advisor; plus the L23 ladder table in full and
+where every citation lives.  Figures are the prompt-9 set, all fourteen used
+(figs 6 and 13, left out of the report for length, appear here).
+
+**Speaker notes** on eleven slides (the prompt asked for ten; the eleventh is
+the MOANA held-out slide): title, the claim, forward-model accuracy, the
+centrepiece ladder, the two findings, PACE fractional change, ΔBIC, the
+PANGAEA scoring artefact, MOANA transfer, the PAB sign change, conclusions.
+Each says what to read off the slide, what number to leave in the room, and
+which committee question it pre-empts.  Also in `reports/oral/speaker_notes.md`.
+
+**Numbers** are the ones on the IOPtics, RoB, PAB and EPFT-UP pages the
+report cites; the L23 ladder table (backup 5) is the reconciled one.
+
+**Git.**  Read-only.  New: `claudes_phd_thesis/scripts/oral/build_deck.py`,
+`reports/oral/{qual_oral.pptx, qual_oral.pdf, speaker_notes.md}`; modified:
+this file.  `python-pptx`, `defusedxml` and `lxml` were pip-installed into
+`ocean14` for the build and validation.  Drive: a new folder
+`Claude_PhD/Qualifying_Exam/` with two files.
